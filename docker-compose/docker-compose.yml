@@ -24,6 +24,7 @@ services:
       - cloudappidb
     environment:
       - TZ=America/Lima
+      - PROFILE = prod
 networks:
   springcloud:
 
