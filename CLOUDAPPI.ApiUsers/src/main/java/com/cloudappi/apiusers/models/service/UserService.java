@@ -32,7 +32,7 @@ public class UserService implements IUserService{
 	public User CreateUser(@Valid User newUser) {
 		newUser.setId(null);
 		Long entranceId = newUser.getAddress().getId();
-		Address address = (addressDao.findById(entranceId).orElse(null)) ==null  ? addressDao.save(newUser.getAddress()) :newUser.getAddress();
+		Address address = (addressDao.findById(entranceId).orElse(null)) == null  ? addressDao.save(newUser.getAddress()) :newUser.getAddress();
 		return userDao.save(newUser);
 	}
 
