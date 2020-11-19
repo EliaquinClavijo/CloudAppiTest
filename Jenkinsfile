@@ -5,7 +5,7 @@ pipeline {
       steps {
         dir('CLOUDAPPI.ApiUsers') {
           sh 'mvn clean package -DskipTests'
-          sh 'sudo docker build -t users-service:v1 .'
+          sh 'docker build -t users-service:v1 .'
         }
         dir('docker-compose') {
           script {
@@ -24,7 +24,7 @@ pipeline {
         dir('docker-compose') {
           script {
             try {
-              sh 'sudo docker-compose up -d'
+              sh 'docker-compose up -d'
             } catch (Exception e) {
               echo 'Docker compose throw an error'
             }
