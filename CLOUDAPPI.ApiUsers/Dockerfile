@@ -4,6 +4,6 @@ VOLUME [ "/tmp" ]
 
 EXPOSE 8080
 
-ADD ./target/MONEYEXPRESS.ApiUsers-0.0.1-SNAPSHOT.jar users-service.jar
+ADD ./target/CLOUDAPPI.ApiUsers-0.0.1-SNAPSHOT.jar users-service.jar
 
 ENTRYPOINT [ "java", "-jar", "users-service.jar" ]
