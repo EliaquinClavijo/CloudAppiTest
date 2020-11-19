@@ -13,7 +13,7 @@ services:
       POSTGRES_PASSWORD: test
     volumes:
       - ./database/:/var/lib/postgresql
-  security-service:
+  users-service:
     image: users-service:v1
     ports:
       - "8080:8080"
