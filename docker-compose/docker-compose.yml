@@ -1,0 +1,29 @@
+version: '3.7'
+services:
+  cloudappidb:
+    image: postgres:12-alpine
+    ports:
+      - "5432:5432"
+    restart: always
+    networks:
+      - springcloud
+    environment:
+      POSTGRES_DB: cloudappidb
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: test
+    volumes:
+      - ./database/:/var/lib/postgresql
+  security-service:
+    image: users-service:v1
+    ports:
+      - "8080:8080"
+    restart: always
+    networks:
+      - springcloud
+    depends_on:
+      - cloudappidb
+    environment:
+      - TZ=America/Lima
+networks:
+  springcloud:
+
