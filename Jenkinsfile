@@ -4,7 +4,7 @@ pipeline {
     stage('Build JAR') {
       steps {
         dir('CLOUDAPPI.ApiUsers') {
-          sh '.\mvnw clean package -DskipTests'
+          sh '.\\mvnw clean package -DskipTests'
           sh ' docker build -t users-service:v1 .'
         }
         dir('docker-compose') {
@@ -19,7 +19,7 @@ pipeline {
       }
     }
 
-    stage('docker-compose Deplo') {
+    stage('docker-compose Deploy') {
       steps {
         dir('docker-compose') {
           script {
